@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+ <!-- head general -->
+ <%- include('partials/head', {title: 'FOD'}) %>
+
+ <!-- link css -->
+    <link rel="stylesheet" href="\styles\carrito.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<body>  
+     <!-- header -->
+     <%- include('partials/header') %>
+     <!--fin del header -->
+    
+    <section class="carrito-section">
+
+        <% if (typeof items != 'undefined') { %>
+         
+            <% if (items.length != 0) { %>
+             
+            
+            <% let total = 0; %> 
+            <% for( let index = 0; index < items.length; index++ ) { %>
+                <% total = total + items[index].price %> 
+            <article class="cart_item">
+
+                <div class="product_img">
+                    <img src="/img/products/<%= items[index].Product.image%>" alt="audio">
+                </div>
+
+                <div class="product_title">
+                    <span><%= items[index].Product.title%></span>
+                </div>
+
+                <div class="product_price">
+                    <span>$<%= items[index].price%></span>
+                </div>
+
+                <form method="POST" action="/cart/delete/<%= items[index].product_id%>?_method=DELETE">
+                    <button class="delete-button">Eliminar</button>
+                </form>
+
+
+            </article>
+
+            <% } %>
+
+            <div class="total_div">
+            TOTAL:$<%= total %>
+            </div>
+            
+            <form action="/cart/order" method="POST">
+            <button class="buy-button" type="submit">
+                COMPRAR
+            </button>
+            </form>
+
+            <% }else{ %>
+
+                <div class="total_div">
+                    Tu carrito esta vacio%>
+                </div>
+
+            <% } %>
+
+        <% } %>
+
+
+
+    </section>
+      <!-- footer -->    
+      <%- include('partials/footer') %>
+      <!-- fin del footer -->  
+    </body>
+</html>

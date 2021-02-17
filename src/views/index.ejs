@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- head general -->
+    <%- include('partials/head', {title: 'FOD'}) %>
+
+    <!-- link css -->
+    <link rel="stylesheet" href="\styles\styleindex.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link js -->
+    <script src= "/js/main.js" defer></script>
+
+
+
+<body>
+    <div class="container">
+        <!-- header -->
+        <%- include('partials/header') %>
+        <!--fin del header -->
+
+    <section class="busquedas">
+        <form id= search action="/products/search" method="POST" class="busqueda">
+            <input  class= "busqueda" type="text" name="products" placeholder="¿Que estas buscando?">
+            <div>
+                <select name="categories" id="categories" class="" onchange="setSucces()" >
+                    <option selected value="title" disabled> Tipo de Archivo </option>
+
+                 <% categories.forEach(category => { %>
+                    <option value="<%= category.id %>" ><%= category.name %></option> 
+                    <% }) %>
+                </select>    
+                
+            </div>                     
+            <button type="submit" class= "submit" ><i>Buscar</i></button>
+            <small id= "user-mesage"></small>
+            
+            </form>
+       
+    </section>
+    <h3 class= destacados>Archivos Destacados</h3>
+    <section class= "productos__destacados">
+        <article class= "productos">
+            <a href="products/detail/22">
+            <img src="/img/products/produaudio.png" alt="audio" class= "produ__img">
+            <h4>Cancion Rock</h4>
+            <h5>$300</h5>
+            </a>
+        </article>
+        <article class= "productos">
+            <a href="products/detail/23">
+            <img src="/img/products/produimagen.png" alt="imagen" class= "produ__img">
+            <h4>Poster Sunset</h4>
+            <h5>$150</h5>
+            </a>
+        </article>
+        <article class= "productos">
+            <a href="products/detail/24">
+            <img src="/img/products/produlibro.png" alt="texto" class= "produ__img">
+            <h4>Libro Ballenas</h4>
+            <h5>$450</h5>
+            </a>
+        </article>
+        <article class= "productos">
+            <a href="products/detail/30">
+            <img src="/img/products/produdiseño.png" alt="diseño" class= "produ__img">
+            <h4>3D Star Wars</h4>
+            <h5>$120</h5>
+            </a>
+        </article>
+        </section>
+        <section class= "busca__categorias">
+            <a href="products/audio" class="carpetas__categorias">AUDIO
+            </a>
+            <a href="products/image" class="carpetas__categorias">IMAGEN
+            </a>
+            <a href="products/writing" class="carpetas__categorias">ESCRITURA
+            </a>
+            <a href="products/design" class="carpetas__categorias">DISEÑO
+            </a>
+        </section>
+        <section class="publicar__arch">
+        <h3 class= destacados>Donde el arte digital tiene valor</h3>
+        <a href="products/create">
+            <button class="publicar">Publicar</button>
+        </a> 
+        </section>  
+        <!-- footer -->    
+        <%- include('partials/footer') %>
+        <!-- fin del footer -->  
+    </div>                
+    </body>
+</html>
