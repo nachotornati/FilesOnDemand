@@ -1,5 +1,5 @@
-# Files On Demand
-Facilitamos el intercambio de arte digital
+# Files On Demand: Proyecto final en Digital House
+FilesOnDemand es un ecommerce que tiene como mision democratizar el intercambio digital. En FOD podras encontrar desde musica hasta diseños para impresora 3d.
 
 ## Comencemos 🚀
 _Estas instrucciones te permitirán obtener una copia del proyecto, para su funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
